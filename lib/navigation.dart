@@ -1,31 +1,28 @@
 import 'package:flutter/material.dart';
 
-class NavigationMainClass extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return FirstNaivgationScreen();
-  }
-}
-
-class FirstNaivgationScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: ElevatedButton(
-        onPressed: () {},
-        child: Text("Pindah Kedua"),
-      ),
-    );
-  }
-}
-
 class SecondNavigationScreen extends StatelessWidget {
+  String message = "";
+
+  SecondNavigationScreen(this.message);
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: OutlineButton(
-        onPressed: () {},
-        child: Text("Kembali"),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Second Screen'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(message),
+            OutlinedButton(
+              child: Text('Kembali'),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        ),
       ),
     );
   }

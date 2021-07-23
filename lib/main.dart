@@ -9,10 +9,13 @@ import 'font.dart';
 import 'listview.dart';
 import 'expandedflexible.dart';
 import 'navigation.dart';
+// import 'responsive.dart';
 
-void main() {
-  runApp(MyApp());
-}
+void main() => runApp(MyApp());
+
+// void main() {
+//   runApp(FirstNaivgationScreen());
+// }
 
 class MyApp extends StatelessWidget {
   @override
@@ -28,6 +31,7 @@ class MyApp extends StatelessWidget {
 }
 
 class FirstScreen extends StatelessWidget {
+  final String message = "Hello Second Screen";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,11 +56,18 @@ class FirstScreen extends StatelessWidget {
       ),
       body: Container(
         margin: EdgeInsets.all(10),
-        child: NavigationMainClass(),
+        child: ListViewClass(),
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
-        onPressed: null,
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => SecondNavigationScreen(message),
+            ),
+          );
+        },
       ),
     );
   }
